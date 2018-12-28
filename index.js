@@ -8,21 +8,22 @@ var extractor = require('node-article-extractor');
 var fs = require('fs');
 var dateFormat = require('dateformat');
 var checkArr =['https://myanmar.mmtimes.com/','bbc','burmese.voanews','mizzimaburmese','https://www.mmtimes.com','mizzima','rfa'];
-var engBur = [' http://www.xinhuanet.com/', 'https://frontiermyanmar.net/', 'https://www.mmtimes.com/', 'https://www.irrawaddy.com/', 'http://www.mizzima.com/', 'https://elevenmyanmar.com/', 'https://www.rfa.org/english/', 'https://teacircleoxford.com/','http://www.globalnewlightofmyanmar.com'];
+var engBur = [' http://www.xinhuanet.com/', 'https://frontiermyanmar.net/', 'https://www.mmtimes.com/', 'https://www.irrawaddy.com/', 'http://www.mizzima.com/', 'https://elevenmyanmar.com/', 'https://www.rfa.org/english/', 'https://teacircleoxford.com/','http://www.globalnewlightofmyanmar.com']; 
 var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var getdataList=[];
 var Rabbit = require("rabbit-node");
-// const http = require("http");
 
-// const server = http.createServer(function (req, res) {
-//   res.end("Hello!");
-// })
 
-// server.listen(80, (err) => {
-//   if ( ! err) {
-//     console.log(`server is listening on 80`)
-//   }
-// })
+var express = require('express');
+var port = process.env.PORT || 3000;
+var app = express();
+app.get('/', function (req, res) {
+ res.send(JSON.stringify({ Hello: 'World'}));
+});
+app.listen(port, function () {
+ console.log('Hello World');
+ monitoringAndSave();
+});
 //exports.handler = (event, context, callback) =>
 function monitoringAndSave(){
   async.eachSeries(monitoringLink, (m, cb) => {
@@ -247,4 +248,3 @@ request.post(options, function optionalCallback(err, httpResponse, body) {
 }
 
 
-monitoringAndSave();
