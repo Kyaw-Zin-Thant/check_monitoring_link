@@ -1,0 +1,21 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "kyawzinthant",
+  "license": "ISC",
+  "dependencies": { 
+    "async": "^2.6.1",
+    "cheerio": "^1.0.0-rc.2",
+    "dateformat": "^3.0.3",
+    "google-translate-api": "^2.3.0",
+    "node-article-extractor": "^1.1.2",
+    "rabbit-node": "^1.0.4",
+    "request": "^2.88.0"
+  }
+}
